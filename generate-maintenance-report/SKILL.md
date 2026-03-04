@@ -177,14 +177,16 @@ Este skill se usa dentro del workflow automatizado de Blixel AI que:
       letter-spacing: 0.5px;
     }
     td {
-      padding: 10px 16px;
+      padding: 8px 14px;
       border-bottom: 1px solid #f0f0f0;
       vertical-align: top;
       color: #4b5563;
+      font-size: 0.75rem;
+      line-height: 1.5;
     }
     tr:nth-child(even) td { background: #f9fafb; }
     tr:last-child td { border-bottom: none; }
-    td:first-child { font-weight: 600; color: #1f2937; }
+    td:first-child { font-weight: 600; color: #1f2937; font-size: 0.8rem; }
 
     /* ── FOOTER ── */
     .footer {
@@ -242,7 +244,11 @@ Este skill se usa dentro del workflow automatizado de Blixel AI que:
   <div class="content">
 
     <h2>1. Resumen del mantenimiento</h2>
-    <!-- Párrafo único: resumen ejecutivo breve (4-5 frases, máx. 5 líneas) -->
+    <!-- Párrafo 1: Resumen ejecutivo (4-5 frases) -->
+    <!-- Párrafo 2: Trabajos en curso y continuidad (3-4 frases) -->
+    <!-- Párrafo 3: Próximos pasos y pendientes (2-3 frases) -->
+
+    <div style="page-break-before: always;"></div>
 
     <h2>2. Acciones realizadas</h2>
     <table>
@@ -325,12 +331,24 @@ Este skill se usa dentro del workflow automatizado de Blixel AI que:
 
 ## Sección 1: Resumen del Mantenimiento (Guía de Redacción)
 
-**Un solo párrafo de 4-5 frases (máximo 5 líneas). Debe caber antes de la tabla sin pasar de página.**
+**Esta sección ocupa TODA la página 1 (junto con header y KPI). Las tablas empiezan en página 2. Hay un `page-break-before: always` antes de la sección 2.**
 
+Redactar 3 párrafos con contenido sustancial para llenar la página:
+
+### Párrafo 1 — Resumen ejecutivo (4-5 frases)
 - Mencionar el número total de tareas completadas en el mes
+- Explicar que abarcan mantenimiento correctivo, mejoras, actualizaciones de seguridad y nuevas funcionalidades
 - Destacar las áreas principales (usar `tareasDestacadas`)
-- Indicar brevemente que hay trabajos en curso y pendientes para próximos ciclos
 - Tono técnico pero accesible
+
+### Párrafo 2 — Trabajos en curso y continuidad (3-4 frases)
+- Mencionar los trabajos en curso y su estado de avance
+- Explicar que aseguran la evolución continua del sistema
+- Adaptar a las necesidades cambiantes de la empresa
+
+### Párrafo 3 — Próximos pasos (2-3 frases)
+- Indicar las tareas pendientes para próximos ciclos
+- Mencionar mejoras programadas a corto plazo
 - NO repetir lo que ya dicen las tablas
 
 ## Formato de Filas HTML para Tablas
@@ -338,10 +356,10 @@ Este skill se usa dentro del workflow automatizado de Blixel AI que:
 ### Tareas completadas (2 columnas)
 ```html
 <tr>
-  <td style="width:35%;font-weight:600;vertical-align:top;padding:10px 16px;border-bottom:1px solid #f0f0f0;color:#1f2937">
+  <td style="width:35%;font-weight:600;vertical-align:top;padding:8px 14px;border-bottom:1px solid #f0f0f0;color:#1f2937;font-size:0.8rem">
     1. Título de la tarea
   </td>
-  <td style="vertical-align:top;padding:10px 16px;border-bottom:1px solid #f0f0f0;color:#4b5563">
+  <td style="vertical-align:top;padding:8px 14px;border-bottom:1px solid #f0f0f0;color:#4b5563;font-size:0.75rem;line-height:1.5">
     Descripción o comentarios
   </td>
 </tr>
@@ -350,7 +368,7 @@ Este skill se usa dentro del workflow automatizado de Blixel AI que:
 ### Trabajos en curso / pendientes (1 columna)
 ```html
 <tr>
-  <td style="vertical-align:top;padding:10px 16px;border-bottom:1px solid #f0f0f0;color:#4b5563">
+  <td style="vertical-align:top;padding:8px 14px;border-bottom:1px solid #f0f0f0;color:#4b5563;font-size:0.75rem;line-height:1.5">
     1. Descripción del trabajo
   </td>
 </tr>
