@@ -17,40 +17,21 @@ Este skill se usa dentro del workflow automatizado de Blixel AI que:
 5. Crea borrador en Gmail con factura + informe adjuntos
 6. Envía notificación interna para revisión
 
-## Estructura del Informe HTML
-
-El informe sigue esta estructura exacta:
-
-```
-1. Header corporativo con logo Blixel AI + datos del cliente
-2. Barra de resumen con KPIs (completadas, en curso, pendientes)
-3. Sección "Objetivo del mantenimiento" (3 párrafos mínimo)
-4. Sección "Principales acciones realizadas" (párrafo resumen + tabla)
-5. Tabla de tareas completadas (Título | Descripción)
-6. Tabla de trabajos en curso
-7. Tabla de trabajos pendientes
-8. Footer corporativo con logo
-```
-
 ## Recursos Corporativos
 
 ### Logo Blixel AI
 - **URL**: `https://blixel.ai/wp-content/uploads/2025/08/blixel.ai-logo-1000_500-2.png`
-- **Uso en header**: ancho 140px, alineado a la izquierda
-- **Uso en footer**: ancho 90px, centrado, opacidad 0.6
-- **Fondo**: el logo es azul (#4F6BF6) sobre fondo transparente, usar sobre fondo blanco o muy claro
+- **Uso en header**: ancho 130px, con `filter: brightness(0) invert(1)` para que se vea blanco sobre fondo oscuro
+- **Uso en footer**: ancho 80px, con `opacity: 0.4` para que sea sutil
 
-### Paleta de Colores Corporativa
-- **Azul primario**: `#4F6BF6` (logo, encabezados, botones)
-- **Azul oscuro**: `#1a1a2e` (títulos principales)
-- **Gris texto**: `#374151` (cuerpo de texto)
-- **Gris claro**: `#6B7280` (texto secundario)
-- **Fondo page**: `#f8fafc`
-- **Fondo card**: `#ffffff`
-- **Borde sutil**: `#e5e7eb`
-- **Accent success**: `#10b981` (indicadores positivos)
-- **Accent warning**: `#f59e0b` (en curso)
-- **Accent info**: `#6366f1` (pendientes)
+### Paleta de Colores (Monocromática)
+- **Negro principal**: `#111827` (header, títulos fuertes)
+- **Gris oscuro**: `#1f2937` (texto principal)
+- **Gris medio**: `#4b5563` (texto secundario, subtítulos)
+- **Gris claro**: `#9ca3af` (metadatos, footer)
+- **Gris borde**: `#e5e7eb` (líneas, separadores)
+- **Fondo alterno**: `#f9fafb` (filas pares de tabla)
+- **Fondo page**: `#ffffff`
 
 ## Plantilla HTML Base
 
@@ -66,8 +47,8 @@ El informe sigue esta estructura exacta:
 
     body {
       font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      color: #374151;
-      background: #f8fafc;
+      color: #1f2937;
+      background: #fff;
       line-height: 1.7;
       font-size: 14px;
     }
@@ -80,51 +61,50 @@ El informe sigue esta estructura exacta:
 
     /* ── HEADER ── */
     .header {
-      background: linear-gradient(135deg, #1a1a2e 0%, #2d2d5e 100%);
-      padding: 40px 48px;
+      background: #111827;
+      padding: 36px 48px;
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
     }
     .header-left { flex: 1; }
     .header-logo {
-      width: 140px;
-      margin-bottom: 20px;
+      width: 130px;
+      margin-bottom: 18px;
       filter: brightness(0) invert(1);
     }
     .header h1 {
       color: #ffffff;
-      font-size: 1.15rem;
-      font-weight: 700;
-      letter-spacing: 0.3px;
-      margin-bottom: 6px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+      margin-bottom: 4px;
     }
     .header-subtitle {
-      color: rgba(255,255,255,0.7);
-      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.8rem;
       font-weight: 400;
     }
     .header-right {
       text-align: right;
-      color: rgba(255,255,255,0.85);
-      font-size: 0.82rem;
+      color: rgba(255,255,255,0.6);
+      font-size: 0.8rem;
       line-height: 1.8;
     }
     .header-right strong {
       color: #fff;
       font-size: 0.85rem;
     }
-    .header-badge {
+    .header-version {
       display: inline-block;
-      background: rgba(79,107,246,0.3);
-      border: 1px solid rgba(79,107,246,0.5);
-      color: #a5b4fc;
-      padding: 3px 12px;
-      border-radius: 20px;
-      font-size: 0.75rem;
-      font-weight: 600;
+      border: 1px solid rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.5);
+      padding: 2px 10px;
+      border-radius: 3px;
+      font-size: 0.7rem;
+      font-weight: 500;
       letter-spacing: 0.5px;
-      margin-top: 8px;
+      margin-top: 6px;
     }
 
     /* ── KPI BAR ── */
@@ -135,145 +115,99 @@ El informe sigue esta estructura exacta:
     .kpi-item {
       flex: 1;
       text-align: center;
-      padding: 20px 16px;
+      padding: 18px 16px;
       border-right: 1px solid #e5e7eb;
     }
     .kpi-item:last-child { border-right: none; }
     .kpi-number {
-      font-size: 1.8rem;
+      font-size: 2rem;
       font-weight: 800;
+      color: #111827;
       line-height: 1;
       margin-bottom: 4px;
     }
-    .kpi-number.green { color: #10b981; }
-    .kpi-number.amber { color: #f59e0b; }
-    .kpi-number.blue { color: #6366f1; }
     .kpi-label {
-      font-size: 0.72rem;
+      font-size: 0.68rem;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      color: #6B7280;
+      letter-spacing: 1.2px;
+      color: #9ca3af;
       font-weight: 600;
     }
 
     /* ── CONTENT ── */
-    .content { padding: 40px 48px; }
+    .content { padding: 36px 48px; }
 
     h2 {
-      color: #1a1a2e;
-      font-size: 1rem;
+      color: #111827;
+      font-size: 0.85rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.8px;
-      padding-bottom: 10px;
-      margin-top: 36px;
-      margin-bottom: 16px;
-      border-bottom: 2px solid #4F6BF6;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    h2 .section-num {
-      background: #4F6BF6;
-      color: #fff;
-      width: 26px;
-      height: 26px;
-      border-radius: 50%;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.75rem;
-      font-weight: 700;
-      flex-shrink: 0;
+      letter-spacing: 1px;
+      padding-bottom: 8px;
+      margin-top: 32px;
+      margin-bottom: 14px;
+      border-bottom: 1px solid #e5e7eb;
     }
     h2:first-child { margin-top: 0; }
 
     p {
-      margin: 12px 0;
-      font-size: 0.92rem;
+      margin: 10px 0;
+      font-size: 0.9rem;
       line-height: 1.75;
-      color: #374151;
+      color: #4b5563;
     }
 
     /* ── TABLES ── */
     table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 16px;
-      margin-bottom: 24px;
-      font-size: 0.88rem;
-      border-radius: 8px;
-      overflow: hidden;
+      margin-top: 14px;
+      margin-bottom: 20px;
+      font-size: 0.85rem;
       border: 1px solid #e5e7eb;
     }
     th {
-      background: #1a1a2e;
+      background: #111827;
       color: #fff;
-      padding: 12px 16px;
+      padding: 10px 16px;
       text-align: left;
       font-weight: 600;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
     td {
-      padding: 11px 16px;
+      padding: 10px 16px;
       border-bottom: 1px solid #f0f0f0;
       vertical-align: top;
-      color: #374151;
+      color: #4b5563;
     }
-    tr:nth-child(even) td { background: #f8fafc; }
+    tr:nth-child(even) td { background: #f9fafb; }
     tr:last-child td { border-bottom: none; }
-    td:first-child { font-weight: 600; color: #1a1a2e; }
-
-    /* ── STATUS BADGES ── */
-    .table-status {
-      display: inline-block;
-      padding: 2px 10px;
-      border-radius: 12px;
-      font-size: 0.72rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.3px;
-    }
-    .status-progress {
-      background: #fef3c7;
-      color: #92400e;
-    }
-    .status-pending {
-      background: #ede9fe;
-      color: #5b21b6;
-    }
+    td:first-child { font-weight: 600; color: #1f2937; }
 
     /* ── FOOTER ── */
     .footer {
-      background: #f8fafc;
       border-top: 1px solid #e5e7eb;
-      padding: 28px 48px;
+      padding: 24px 48px;
       text-align: center;
     }
     .footer-logo {
-      width: 90px;
-      opacity: 0.5;
-      margin-bottom: 10px;
+      width: 80px;
+      opacity: 0.4;
+      margin-bottom: 8px;
     }
     .footer-text {
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       color: #9ca3af;
       line-height: 1.6;
-    }
-    .footer-divider {
-      width: 40px;
-      height: 2px;
-      background: #e5e7eb;
-      margin: 10px auto;
     }
   </style>
 </head>
 <body>
 <div class="page">
 
-  <!-- HEADER CORPORATIVO -->
+  <!-- HEADER -->
   <div class="header">
     <div class="header-left">
       <img src="https://blixel.ai/wp-content/uploads/2025/08/blixel.ai-logo-1000_500-2.png"
@@ -284,22 +218,22 @@ El informe sigue esta estructura exacta:
     <div class="header-right">
       <strong>[NOMBRE CLIENTE]</strong><br>
       [Mes Año]<br>
-      <span class="header-badge">[VERSION]</span>
+      <span class="header-version">[VERSION]</span>
     </div>
   </div>
 
-  <!-- BARRA KPI -->
+  <!-- KPI BAR -->
   <div class="kpi-bar">
     <div class="kpi-item">
-      <div class="kpi-number green">[totalCompletadas]</div>
+      <div class="kpi-number">[totalCompletadas]</div>
       <div class="kpi-label">Completadas</div>
     </div>
     <div class="kpi-item">
-      <div class="kpi-number amber">[totalEnCurso]</div>
+      <div class="kpi-number">[totalEnCurso]</div>
       <div class="kpi-label">En curso</div>
     </div>
     <div class="kpi-item">
-      <div class="kpi-number blue">[totalPendientes]</div>
+      <div class="kpi-number">[totalPendientes]</div>
       <div class="kpi-label">Pendientes</div>
     </div>
   </div>
@@ -307,12 +241,12 @@ El informe sigue esta estructura exacta:
   <!-- CONTENIDO -->
   <div class="content">
 
-    <h2><span class="section-num">1</span> Objetivo del mantenimiento</h2>
+    <h2>1. Objetivo del mantenimiento</h2>
     <!-- Párrafo 1: Resumen ejecutivo (mín. 4 frases) -->
     <!-- Párrafo 2: Proyección y continuidad (mín. 3 frases) -->
     <!-- Párrafo 3: Próximos desarrollos (mín. 2 frases) -->
 
-    <h2><span class="section-num">2</span> Principales acciones realizadas</h2>
+    <h2>2. Principales acciones realizadas</h2>
     <!-- Párrafo resumen de 3-4 líneas -->
 
     <table>
@@ -322,7 +256,7 @@ El informe sigue esta estructura exacta:
       </tbody>
     </table>
 
-    <h2><span class="section-num">3</span> Trabajos en curso</h2>
+    <h2>3. Trabajos en curso</h2>
     <table>
       <thead><tr><th>Descripción</th></tr></thead>
       <tbody>
@@ -330,7 +264,7 @@ El informe sigue esta estructura exacta:
       </tbody>
     </table>
 
-    <h2><span class="section-num">4</span> Trabajos pendientes</h2>
+    <h2>4. Trabajos pendientes</h2>
     <table>
       <thead><tr><th>Descripción</th></tr></thead>
       <tbody>
@@ -344,11 +278,8 @@ El informe sigue esta estructura exacta:
   <div class="footer">
     <img src="https://blixel.ai/wp-content/uploads/2025/08/blixel.ai-logo-1000_500-2.png"
          alt="Blixel AI" class="footer-logo">
-    <div class="footer-divider"></div>
     <div class="footer-text">
-      Documento elaborado por Blixel AI<br>
-      Area de Automatizacion y Mantenimiento de Sistemas<br>
-      blixel.ai
+      Documento elaborado por Blixel AI &mdash; Area de Automatizacion y Mantenimiento de Sistemas
     </div>
   </div>
 
@@ -358,8 +289,6 @@ El informe sigue esta estructura exacta:
 ```
 
 ## Datos de Entrada
-
-El informe recibe datos ya procesados desde Notion con estas variables:
 
 | Variable | Contenido | Formato |
 |----------|-----------|---------|
@@ -396,6 +325,7 @@ El informe recibe datos ya procesados desde Notion con estas variables:
 6. Emojis en el documento
 7. Columnas de fecha en las tablas
 8. Modificar la URL del logo ni los estilos del header/footer
+9. Añadir colores llamativos — usar SOLO la paleta monocromática definida
 
 ## Sección 1: Objetivo del Mantenimiento (Guía de Redacción)
 
@@ -425,10 +355,10 @@ El informe recibe datos ya procesados desde Notion con estas variables:
 ### Tareas completadas (2 columnas)
 ```html
 <tr>
-  <td style="width:35%;font-weight:600;vertical-align:top;padding:11px 16px;border-bottom:1px solid #f0f0f0;color:#1a1a2e">
+  <td style="width:35%;font-weight:600;vertical-align:top;padding:10px 16px;border-bottom:1px solid #f0f0f0;color:#1f2937">
     1. Título de la tarea
   </td>
-  <td style="vertical-align:top;padding:11px 16px;border-bottom:1px solid #f0f0f0;color:#374151">
+  <td style="vertical-align:top;padding:10px 16px;border-bottom:1px solid #f0f0f0;color:#4b5563">
     Descripción o comentarios
   </td>
 </tr>
@@ -437,7 +367,7 @@ El informe recibe datos ya procesados desde Notion con estas variables:
 ### Trabajos en curso / pendientes (1 columna)
 ```html
 <tr>
-  <td style="vertical-align:top;padding:11px 16px;border-bottom:1px solid #f0f0f0;color:#374151">
+  <td style="vertical-align:top;padding:10px 16px;border-bottom:1px solid #f0f0f0;color:#4b5563">
     1. Descripción del trabajo
   </td>
 </tr>
@@ -451,9 +381,7 @@ El HTML generado se convierte a PDF usando Gotenberg con estos márgenes:
 - Left: 0.5
 - Right: 0.5
 
-Asegurar que el HTML sea autocontenido (todos los estilos en `<style>`) ya que Gotenberg no tiene acceso a recursos externos excepto imágenes por URL.
-
-**IMPORTANTE para el logo**: Gotenberg SÍ puede cargar imágenes por URL externa, por lo que el logo de `blixel.ai` se renderizará correctamente en el PDF.
+El HTML debe ser autocontenido (todos los estilos en `<style>`). Gotenberg SÍ carga imágenes por URL externa (el logo se renderiza correctamente).
 
 ## Generación de Email Acompañante
 
@@ -477,7 +405,7 @@ Junto al informe se genera un email con estas características:
 ```
 
 ### Firma (se añade automáticamente, NO incluir en el body)
-La firma de Noa (Asistente IA de Gestión, Blixel AI) se concatena automáticamente después del body del email en el nodo de construcción MIME.
+La firma de Noa se concatena automáticamente después del body del email en el nodo de construcción MIME.
 
 ## Identidad del Asistente
 
