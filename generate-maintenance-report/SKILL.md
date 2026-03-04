@@ -329,17 +329,18 @@ Este skill se usa dentro del workflow automatizado de Blixel AI que:
 
 ## Sección 1: Objetivo del Mantenimiento (Guía de Redacción)
 
-### Párrafo 1 — Resumen ejecutivo (mín. 4 frases)
-- Explicar que las tareas abarcan: mantenimiento correctivo, mejoras solicitadas, actualizaciones de seguridad, optimización de rendimiento, nuevas funcionalidades
+**IMPORTANTE: Esta sección NUNCA debe sobrepasar la primera página del PDF. Mantener los párrafos concisos y directos. Máximo 8-10 líneas en total entre los 3 párrafos.**
+
+### Párrafo 1 — Resumen ejecutivo (3-4 frases, máx. 4 líneas)
+- Explicar brevemente que las tareas abarcan: mantenimiento correctivo, mejoras solicitadas, actualizaciones de seguridad, optimización de rendimiento, nuevas funcionalidades
 - Destacar las áreas principales (usar `tareasDestacadas`)
 - Tono técnico pero accesible
 
-### Párrafo 2 — Proyección y continuidad (mín. 3 frases)
+### Párrafo 2 — Proyección y continuidad (2-3 frases, máx. 3 líneas)
 - Mencionar los trabajos en curso y su estado de avance
 - Explicar que aseguran la evolución continua del sistema
-- Adaptar a las necesidades cambiantes de la empresa
 
-### Párrafo 3 — Próximos desarrollos (mín. 2 frases)
+### Párrafo 3 — Próximos desarrollos (2 frases, máx. 2 líneas)
 - Indicar las tareas pendientes para próximos ciclos
 - Mencionar mejoras programadas a corto plazo
 
