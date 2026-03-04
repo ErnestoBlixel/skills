@@ -241,14 +241,10 @@ Este skill se usa dentro del workflow automatizado de Blixel AI que:
   <!-- CONTENIDO -->
   <div class="content">
 
-    <h2>1. Objetivo del mantenimiento</h2>
-    <!-- Párrafo 1: Resumen ejecutivo (mín. 4 frases) -->
-    <!-- Párrafo 2: Proyección y continuidad (mín. 3 frases) -->
-    <!-- Párrafo 3: Próximos desarrollos (mín. 2 frases) -->
+    <h2>1. Resumen del mantenimiento</h2>
+    <!-- Párrafo único: resumen ejecutivo breve (4-5 frases, máx. 5 líneas) -->
 
-    <h2>2. Principales acciones realizadas</h2>
-    <!-- Párrafo resumen de 3-4 líneas -->
-
+    <h2>2. Acciones realizadas</h2>
     <table>
       <thead><tr><th style="width:35%">Acción</th><th>Detalle</th></tr></thead>
       <tbody>
@@ -327,29 +323,15 @@ Este skill se usa dentro del workflow automatizado de Blixel AI que:
 8. Modificar la URL del logo ni los estilos del header/footer
 9. Añadir colores llamativos — usar SOLO la paleta monocromática definida
 
-## Sección 1: Objetivo del Mantenimiento (Guía de Redacción)
+## Sección 1: Resumen del Mantenimiento (Guía de Redacción)
 
-**IMPORTANTE: Esta sección NUNCA debe sobrepasar la primera página del PDF. Mantener los párrafos concisos y directos. Máximo 8-10 líneas en total entre los 3 párrafos.**
+**Un solo párrafo de 4-5 frases (máximo 5 líneas). Debe caber antes de la tabla sin pasar de página.**
 
-### Párrafo 1 — Resumen ejecutivo (3-4 frases, máx. 4 líneas)
-- Explicar brevemente que las tareas abarcan: mantenimiento correctivo, mejoras solicitadas, actualizaciones de seguridad, optimización de rendimiento, nuevas funcionalidades
+- Mencionar el número total de tareas completadas en el mes
 - Destacar las áreas principales (usar `tareasDestacadas`)
+- Indicar brevemente que hay trabajos en curso y pendientes para próximos ciclos
 - Tono técnico pero accesible
-
-### Párrafo 2 — Proyección y continuidad (2-3 frases, máx. 3 líneas)
-- Mencionar los trabajos en curso y su estado de avance
-- Explicar que aseguran la evolución continua del sistema
-
-### Párrafo 3 — Próximos desarrollos (2 frases, máx. 2 líneas)
-- Indicar las tareas pendientes para próximos ciclos
-- Mencionar mejoras programadas a corto plazo
-
-## Sección 2: Principales Acciones Realizadas (Guía de Redacción)
-
-- Párrafo de 3-4 líneas resumiendo las acciones más destacadas
-- Mencionar el número total de tareas completadas
-- Destacar las 3 tareas principales (de `tareasDestacadas`)
-- NO describir cada tarea individualmente en el párrafo (para eso están las tablas)
+- NO repetir lo que ya dicen las tablas
 
 ## Formato de Filas HTML para Tablas
 
