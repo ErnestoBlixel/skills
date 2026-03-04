@@ -395,11 +395,15 @@ Junto al informe se genera un email con estas características:
 - NO mencionar horas ni tiempos
 - Usar "vosotros"
 - Formato: JSON con campos `subject` y `body` (HTML con estilos inline)
+- **OBLIGATORIO**: El asunto (`subject`) debe ser SIEMPRE exactamente el mismo formato, sin variaciones:
+  `Factura e informe de mantenimiento - [Mes Año] | [NOMBRE CLIENTE]`
+  Ejemplo: `Factura e informe de mantenimiento - Marzo 2026 | PORTES BISBAL SL`
+- **PROHIBIDO**: Cambiar el formato del asunto, añadir palabras extra, reordenar elementos o usar otro patrón
 
 ### Estructura del email
 ```json
 {
-  "subject": "[Asunto del email]",
+  "subject": "Factura e informe de mantenimiento - [Mes Año] | [NOMBRE CLIENTE]",
   "body": "<div style=\"font-family: 'Segoe UI', Arial, sans-serif; font-size: 14px; color: #333; line-height: 1.6;\"><p>Hola [nombre],</p><p>[contenido]</p><p>Un saludo cordial,</p></div>"
 }
 ```
